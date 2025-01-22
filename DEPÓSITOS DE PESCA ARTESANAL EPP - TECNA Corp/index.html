@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>DEPÓSITOS DE PESCA ARTESANAL EPP - TECNA Corp.</title>
+
+		<link rel="stylesheet" type="text/css" href="javascript/style.css" />
+		<link rel="stylesheet" type="text/css" href="leaflet/leaflet.css"/>
+
+		<script type="text/javascript" src="leaflet/leaflet.js"></script>
+		<script type="text/javascript" src="javascript/tab.js"></script>
+
+		<!-- Caminhos paras os dados das camadas -->
+		<script type="text/javascript" src="data/_AID_Social_interaccion_200m_crucita.js"></script>
+		<script type="text/javascript" src="data/_AID_Social_interaccion_200m_stamarianita.js"></script>
+		<script type="text/javascript" src="data/_Canton_Manta.js"></script>
+		<script type="text/javascript" src="data/_Canton_portoviejo.js"></script>
+		<script type="text/javascript" src="data/_DPA_CRUCITA_Aloha_Points.js"></script>
+		<script type="text/javascript" src="data/_DPA_STA_MARIANITA.js"></script>
+		<script type="text/javascript" src="data/_Permeabilidad_portoviejo.js"></script>
+		<script type="text/javascript" src="data/_Permeabilidad_manta.js"></script>
+		<script type="text/javascript" src="data/_Poligono_ci_maate_crucita.js"></script>
+		<script type="text/javascript" src="data/_Precipitacion_Portoviejo.js"></script>
+		<script type="text/javascript" src="data/_Precipitacion_manta.js"></script>
+		<script type="text/javascript" src="data/_Rio_manta.js"></script>
+		<script type="text/javascript" src="data/_Rio_portoviejo.js"></script>
+		<script type="text/javascript" src="data/_STA_MARIANITA_Aloha_Points.js"></script>
+		<script type="text/javascript" src="data/_Zonas_amenaza_crucita.js"></script>
+		<script type="text/javascript" src="data/_Zonas_amenaza_stamarianita.js"></script>
+		<script type="text/javascript" src="data/_erosion_manta.js"></script>
+		<script type="text/javascript" src="data/_erosion_portoviejo.js"></script>
+		<script type="text/javascript" src="data/_inundacion_manta.js"></script>
+		<script type="text/javascript" src="data/_inundacion_portoviejo.js"></script>
+	</head>
+	<body>
+		<div class="title">
+			<h1>DEPÓSITOS DE PESCA ARTESANAL EPP - TECNA Corp.</h1>
+		</div>
+		<div class="maintab">
+			<button id="mapBtn" class="mainTablinks" onclick="openMainTab(event, 'mapArea')">Mapa</button>
+			<button class="mainTablinks" onclick="openMainTab(event, 'attributesArea')">Tabelas de Atributos</button>
+		</div>
+		<div id="mapArea" class="mainTabContent">
+			<div id="map"></div>
+		</div>
+
+		<div id="attributesArea" class="mainTabContent">
+			<div class="tab">
+				<button id="_AID_Social_interaccion_200m_crucita_btn" class="tablinks" onclick="openTab(event, '_AID_Social_interaccion_200m_crucita_tab')">AID Social_interaccion_200m_crucita</button>
+				<button id="_AID_Social_interaccion_200m_stamarianita_btn" class="tablinks" onclick="openTab(event, '_AID_Social_interaccion_200m_stamarianita_tab')">AID Social_interaccion_200m_stamarianita</button>
+				<button id="_Canton_Manta_btn" class="tablinks" onclick="openTab(event, '_Canton_Manta_tab')">Canton_Manta</button>
+				<button id="_Canton_portoviejo_btn" class="tablinks" onclick="openTab(event, '_Canton_portoviejo_tab')">Canton_portoviejo</button>
+				<button id="_DPA_CRUCITA_Aloha_Points_btn" class="tablinks" onclick="openTab(event, '_DPA_CRUCITA_Aloha_Points_tab')">DPA_CRUCITA Aloha Points</button>
+				<button id="_DPA_STA_MARIANITA_btn" class="tablinks" onclick="openTab(event, '_DPA_STA_MARIANITA_tab')">DPA STA MARIANITA</button>
+				<button id="_Permeabilidad_portoviejo_btn" class="tablinks" onclick="openTab(event, '_Permeabilidad_portoviejo_tab')">Permeabilidad_portoviejo</button>
+				<button id="_Permeabilidad_manta_btn" class="tablinks" onclick="openTab(event, '_Permeabilidad_manta_tab')">Permeabilidad_manta</button>
+				<button id="_Poligono_ci_maate_crucita_btn" class="tablinks" onclick="openTab(event, '_Poligono_ci_maate_crucita_tab')">Poligono_ci_maate_crucita</button>
+				<button id="_Precipitacion_Portoviejo_btn" class="tablinks" onclick="openTab(event, '_Precipitacion_Portoviejo_tab')">Precipitacion_Portoviejo</button>
+				<button id="_Precipitacion_manta_btn" class="tablinks" onclick="openTab(event, '_Precipitacion_manta_tab')">Precipitacion_manta</button>
+				<button id="_Rio_manta_btn" class="tablinks" onclick="openTab(event, '_Rio_manta_tab')">Rio_manta</button>
+				<button id="_Rio_portoviejo_btn" class="tablinks" onclick="openTab(event, '_Rio_portoviejo_tab')">Rio_portoviejo</button>
+				<button id="_STA_MARIANITA_Aloha_Points_btn" class="tablinks" onclick="openTab(event, '_STA_MARIANITA_Aloha_Points_tab')">STA_MARIANITA Aloha Points</button>
+				<button id="_Zonas_amenaza_crucita_btn" class="tablinks" onclick="openTab(event, '_Zonas_amenaza_crucita_tab')">Zonas_amenaza_crucita</button>
+				<button id="_Zonas_amenaza_stamarianita_btn" class="tablinks" onclick="openTab(event, '_Zonas_amenaza_stamarianita_tab')">Zonas_amenaza_stamarianita</button>
+				<button id="_erosion_manta_btn" class="tablinks" onclick="openTab(event, '_erosion_manta_tab')">erosion_manta</button>
+				<button id="_erosion_portoviejo_btn" class="tablinks" onclick="openTab(event, '_erosion_portoviejo_tab')">erosion_portoviejo</button>
+				<button id="_inundacion_manta_btn" class="tablinks" onclick="openTab(event, '_inundacion_manta_tab')">inundacion_manta</button>
+				<button id="_inundacion_portoviejo_btn" class="tablinks" onclick="openTab(event, '_inundacion_portoviejo_tab')">inundacion_portoviejo</button>
+			</div>
+			<div id="_AID_Social_interaccion_200m_crucita_tab" class="tabcontent"></div>
+			<div id="_AID_Social_interaccion_200m_stamarianita_tab" class="tabcontent"></div>
+			<div id="_Canton_Manta_tab" class="tabcontent"></div>
+			<div id="_Canton_portoviejo_tab" class="tabcontent"></div>
+			<div id="_DPA_CRUCITA_Aloha_Points_tab" class="tabcontent"></div>
+			<div id="_DPA_STA_MARIANITA_tab" class="tabcontent"></div>
+			<div id="_Permeabilidad_portoviejo_tab" class="tabcontent"></div>
+			<div id="_Permeabilidad_manta_tab" class="tabcontent"></div>
+			<div id="_Poligono_ci_maate_crucita_tab" class="tabcontent"></div>
+			<div id="_Precipitacion_Portoviejo_tab" class="tabcontent"></div>
+			<div id="_Precipitacion_manta_tab" class="tabcontent"></div>
+			<div id="_Rio_manta_tab" class="tabcontent"></div>
+			<div id="_Rio_portoviejo_tab" class="tabcontent"></div>
+			<div id="_STA_MARIANITA_Aloha_Points_tab" class="tabcontent"></div>
+			<div id="_Zonas_amenaza_crucita_tab" class="tabcontent"></div>
+			<div id="_Zonas_amenaza_stamarianita_tab" class="tabcontent"></div>
+			<div id="_erosion_manta_tab" class="tabcontent"></div>
+			<div id="_erosion_portoviejo_tab" class="tabcontent"></div>
+			<div id="_inundacion_manta_tab" class="tabcontent"></div>
+			<div id="_inundacion_portoviejo_tab" class="tabcontent"></div>
+		</div>
+		<script type="text/javascript" src="javascript/map.js"></script>
+		<script type="text/javascript" src="javascript/attributes.js"></script>
+		<script>document.getElementById('mapBtn').click();</script>	</body>
+</html>
