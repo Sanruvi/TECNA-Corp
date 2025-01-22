@@ -1,0 +1,1 @@
+# El presente proyecto muestra los riesgos exógenos (naturales) a los cuales se encuentra expuestos los Depósitos de Pesca Artesanal en Crucita y Santa Marianita a cargo de la operadora EP Petroecuador
